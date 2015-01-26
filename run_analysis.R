@@ -95,4 +95,4 @@ outputCleanData <- as.data.frame(do.call(rbind, cleanData2))
 rm(cleanData)
 
 
-write.table(outputCleanData, file="output.txt", row.names = FALSE, col.names = FALSE);
+write.table(outputCleanData, file="output.txt", row.names = FALSE);
