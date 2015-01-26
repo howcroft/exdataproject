@@ -91,47 +91,84 @@ E.g. column "tBodyAcc-mean()-X" contains the average of all observed values of T
 ### "fBodyAccMag-meanFreq()"
 	Original dataset column position: 513
 ### "fBodyBodyAccJerkMag-mean()"
+	Original dataset column position: 516
 ### "fBodyBodyAccJerkMag-meanFreq()"
+	Original dataset column position: 526
 ### "fBodyBodyGyroMag-mean()"
+	Original dataset column position: 529
 ### "fBodyBodyGyroMag-meanFreq()"
+	Original dataset column position: 539
 ### "fBodyBodyGyroJerkMag-mean()"
+	Original dataset column position: 542
 ### "fBodyBodyGyroJerkMag-meanFreq()"
+	Original dataset column position: 552
 ### "tBodyAcc-std()-X"
+	Original dataset column position: 4
 ### "tBodyAcc-std()-Y"
+	Original dataset column position: 5
 ### "tBodyAcc-std()-Z"
+	Original dataset column position: 6
 ### "tGravityAcc-std()-X"
+	Original dataset column position: 44
 ### "tGravityAcc-std()-Y"
+	Original dataset column position: 45
 ### "tGravityAcc-std()-Z"
+	Original dataset column position: 46
 ### "tBodyAccJerk-std()-X"
+	Original dataset column position: 84
 ### "tBodyAccJerk-std()-Y"
+	Original dataset column position: 85
 ### "tBodyAccJerk-std()-Z"
+	Original dataset column position: 86
 ### "tBodyGyro-std()-X"
+	Original dataset column position: 124
 ### "tBodyGyro-std()-Y"
+	Original dataset column position: 125
 ### "tBodyGyro-std()-Z"
+	Original dataset column position: 126
 ### "tBodyGyroJerk-std()-X"
+	Original dataset column position: 165
 ### "tBodyGyroJerk-std()-Y"
+	Original dataset column position: 165
 ### "tBodyGyroJerk-std()-Z"
+	Original dataset column position: 166
 ### "tBodyAccMag-std()"
+	Original dataset column position: 202
 ### "tGravityAccMag-std()"
+	Original dataset column position: 215
 ### "tBodyAccJerkMag-std()"
+	Original dataset column position: 228
 ### "tBodyGyroMag-std()"
+	Original dataset column position: 241
 ### "tBodyGyroJerkMag-std()"
+	Original dataset column position: 254
 ### "fBodyAcc-std()-X"
+	Original dataset column position: 269
 ### "fBodyAcc-std()-Y"
+	Original dataset column position: 270
 ### "fBodyAcc-std()-Z"
+	Original dataset column position: 271
 ### "fBodyAccJerk-std()-X"
+	Original dataset column position: 348
 ### "fBodyAccJerk-std()-Y"
+	Original dataset column position: 349
 ### "fBodyAccJerk-std()-Z"
+	Original dataset column position: 350
 ### "fBodyGyro-std()-X"
+	Original dataset column position: 427
 ### "fBodyGyro-std()-Y"
+	Original dataset column position: 428
 ### "fBodyGyro-std()-Z"
+	Original dataset column position: 429
 ### "fBodyAccMag-std()"
+	Original dataset column position: 504
 ### "fBodyBodyAccJerkMag-std()"
+	Original dataset column position: 517
 ### "fBodyBodyGyroMag-std()"
+	Original dataset column position: 530
 ### "fBodyBodyGyroJerkMag-std()"
-### "activity"
+	Original dataset column position: 543
+### "activity" 
+	Original dataset column position: not present (results from merging y_{train|test}.txt information)
 ### "Subject"
-
- 1   2   3  41  42  43  81  82  83 121 122 123 161 162 163 201 214 227 240 253 266 267 268 294 295 296 345 346 347 373
-[31] 374 375 424 425 426 452 453 454 503 513 516 526 529 539 542 552   4   5   6  44  45  46  84  85  86 124 125 126 164 165
-[61] 166 202 215 228 241 254 269 270 271 348 349 350 427 428 429 504 517 530 543 562
+	Original dataset column position: not present (results from merging subject_{train|test}.txt information)
