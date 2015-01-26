@@ -42,19 +42,28 @@ rm(trainSet)
 #2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 a <- grep("mean", featureNames)
 b <- grep("std", featureNames)
-c <- c(a,b)
+#Activity is the last column added in previous commands, hence 562
+c <- c(a,b, 562)
 dataSetFiltered <- dataSet[, c]
 
 #3. Uses descriptive activity names to name the activities in the data set
 #set the walking, running sleeping etc, directly on factor column (activity?)
-activityName 
+activityNames <- read.table("./activity_labels.txt", header = F, stringsAsFactors= F)
+#featureNames <- c(featureNames[,2], "activity")
+#Give the activity names to the levels. Levels are already ordered
+levels(dataSetFiltered[,80]) <- activityNames[,2]
+
 
 #4. Appropriately labels the data set with descriptive variable names. 
 #Label columns
-?????
+#Already done in previous steps of the code, see lines 29-37
+#Pasted
+#featureNames <- read.table("./features.txt", header = F, stringsAsFactors= F)
+#featureNames <- c(featureNames[,2], "activity")
+
+
 
 #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-????
 subjectFilterTrain <- read.table("./train/subject_train.txt", header = F, stringsAsFactors= F)
 subjectFilterTest <- read.table("./test/subject_test.txt", header = F, stringsAsFactors= F)
 subjectFilter <- rbind(subjectFilterTrain, subjectFilterTest)
@@ -62,15 +71,28 @@ rm(subjectFilterTrain)
 rm(subjectFilterTest)
 
 
+dataSetFiltered <- cbind(dataSetFiltered, subjectFilter)
+#Label appropriately
+names(dataSetFiltered)[81] <- "Subject"
+columnNames <- names(dataSetFiltered)
+dataSetSubjectsSplit <- split(dataSetFiltered, dataSetFiltered$Subject)
+
+#validation
+#sum(subjectFilter[,1] == 24)
+#temp <- dataSetFiltered[subjectFilter[,1] == 24,]
+#temp <- temp[temp[80] == "WALKING",]
+#validateSub24MeanWalking <- colMeans(temp[,1:79])
+#validateSub24MeanWalking[1]
+
+dataSetSubjectsSplitActivitySubSplit <- lapply(dataSetSubjectsSplit, function (x) {split(x, x$activity)})
+#cleanData <- lapply(dataSetSubjectsSplitActivitySubSplit, function(x){ lapply(x, function(y) { c(colMeans(y[,1:79]),  y[1,80], y[1, 81])}) })
+cleanData2 <- lapply(dataSetSubjectsSplitActivitySubSplit, function(x){ lapply(x, function(y) { c(colMeans(y[,1:79]),  y[1,80], y[1, 81])}) })
+
+#cleanData2 <-  unlist(cleanData, recursive=FALSE)
+cleanData2<- unlist(cleanData2, recursive = FALSE)
+names(cleanData2) <- columnNames
+outputCleanData <- as.data.frame(do.call(rbind, cleanData2))
+rm(cleanData)
 
 
-#factor on last column (Y)
-
-#write the clean dataset to file:
-zz <- file("ex.data", "w")  # open an output file connection
-cat("TITLE extra line", "2 3 5 7", "", "11 13 17", file = zz, sep = "\n")
-cat("One more line\n", file = zz)
-close(zz)
-readLines("ex.data")
-unlink("ex.data")
-
+write.table(outputCleanData, file="output.txt", row.names = FALSE, col.names = FALSE);
